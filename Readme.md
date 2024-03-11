@@ -30,33 +30,34 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
 
 ```sh
     // In App.js
+
     import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
 
     export default function App() {
 
-    const lightTheme = {
-        primaryBackgroundColor: "yellow",
-        secondaryBackgroundColor: "#ccc",
-        primaryTextColor: "#000",
-        secondaryTextColor: "#4d4d4d",
-    }
+        const lightTheme = {
+            primaryBackgroundColor: "yellow",
+            secondaryBackgroundColor: "#ccc",
+            primaryTextColor: "#000",
+            secondaryTextColor: "#4d4d4d",
+        }
 
-    const darkTheme = {
-        primaryBackgroundColor: "#111",
-        secondaryBackgroundColor: "#333",
-        primaryTextColor: "#fff",
-        secondaryTextColor: "#cccccc",
-    }
+        const darkTheme = {
+            primaryBackgroundColor: "#111",
+            secondaryBackgroundColor: "#333",
+            primaryTextColor: "#fff",
+            secondaryTextColor: "#cccccc",
+        }
 
-    return (
-        <View style={styles.container}>
-        <ThemeProvider light={lightTheme} dark={darkTheme}>
-            <StatusBar style="auto" />
-            <Homepage />
-            <ThemeSwitcherBtn />
-        </ThemeProvider>
-        </View>
-    );
+        return (
+            <View style={styles.container}>
+            <ThemeProvider light={lightTheme} dark={darkTheme}>
+                <StatusBar style="auto" />
+                <Homepage />
+                <ThemeSwitcherBtn />
+            </ThemeProvider>
+            </View>
+        );
 }
 
 ```
