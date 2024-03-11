@@ -30,6 +30,7 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
 
 ```sh
     // In App.js
+    // setup part...
 
     import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
 
@@ -50,7 +51,7 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
             primaryTextColor: "#fff",
             secondaryTextColor: "#cccccc",
         }
-    
+
         return (
             <ThemeProvider light={lightTheme} dark={darkTheme}>
                 <Homepage /> // another component
@@ -58,5 +59,29 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
             </ThemeProvider>
         );
 }
+
+```
+
+```sh
+    // In Homepage.tsx
+
+    import { useTheme } from 'expo-theme-switcher'
+
+    const Homepage = () => {
+    const { currentTheme } = useTheme() // currentTheme is a object
+
+    // currentTheme give like this object   
+    // console.log("currentTheme : ", currentTheme) // currentTheme :  {"isDarkMode": false, "primaryBackgroundColor": "white", "primaryTextColor": "#000", "secondaryBackgroundColor": "#ccc", "secondaryTextColor": "#4d4d4d"}
+
+    return (
+        <View style={{backgroundColor: currentTheme.primaryBackgroundColor}}>
+            <Text style={{color: currentTheme.primaryTextColor}} >Homepage</Text>
+            <Text style={{color: currentTheme.primaryTextColor}}>Homepage</Text>
+        </View>
+    )
+}
+
+export default Homepage
+
 
 ```
