@@ -1,0 +1,20 @@
+{
+  "name": "expo-theme-switcher",
+  "version": "1.0.2",
+  "description": "This is npm package for helping react native(expo) developer, And it provide simple way to handle dark and light in big expo project",
+  "main": "ThemeSwitcherProvider.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ankur.developer",
+  "license": "ISC",
+  "peerDependencies": {
+    "expo": "~50.0.11",
+    "expo-status-bar": "~1.11.1",
+    "react": "18.2.0",
+    "react-native": "0.73.4",
+    "@react-native-async-storage/async-storage": "1.21.0",
+    "typescript": "^5.3.0",
+    "@types/react": "~18.2.45"
+  }
+}
