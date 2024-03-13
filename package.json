@@ -1,6 +1,6 @@
 {
   "name": "expo-theme-switcher",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This is npm package for helping react native(expo) developer, And it provide simple way to handle dark and light in big expo project",
   "main": "ThemeSwitcherProvider.ts",
   "scripts": {
@@ -18,5 +18,19 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.21.0"
-  }
+  },
+  "keywords": [
+    "react-native",
+    "react native-web",
+    "react-native-web",
+    "expo",
+    "expo-web",
+    "dark-mode",
+    "light-mode",
+    "dark-light-mode",
+    "theme-switcher",
+    "expo-theme-switcher",
+    "react-native-theme",
+    "react-native-theme-switcher"
+  ]
 }

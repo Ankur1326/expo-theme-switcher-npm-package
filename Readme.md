@@ -38,10 +38,12 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
 
         // light theme colors
         const lightTheme = {
-            primaryBackgroundColor: "yellow",
-            secondaryBackgroundColor: "",
+            primaryBackgroundColor: "white",
+            secondaryBackgroundColor: "#c7c7c7",
             primaryTextColor: "#000",
             secondaryTextColor: "",
+            primaryBorderColor: "black",
+            secondaryBorderColor: "gray",
         }
 
         // dark theme colors
@@ -50,6 +52,8 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
             secondaryBackgroundColor: "#333",
             primaryTextColor: "#fff",
             secondaryTextColor: "#cccccc",
+            primaryBorderColor: "white",
+            secondaryBorderColor: "gray",
         }
 
         return (
@@ -70,7 +74,7 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
     const Homepage = () => {
     const { currentTheme } = useTheme() // currentTheme is a object
 
-    // currentTheme give like this object   
+    // currentTheme give like this object
     // console.log("currentTheme : ", currentTheme) // currentTheme :  {"isDarkMode": false, "primaryBackgroundColor": "white", "primaryTextColor": "#000", "secondaryBackgroundColor": "#ccc", "secondaryTextColor": "#4d4d4d"}
 
     return (
