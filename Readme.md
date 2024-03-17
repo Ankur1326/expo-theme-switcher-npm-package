@@ -74,7 +74,6 @@ import { ThemeProvider, ThemeSwitcherBtn, useTheme } from 'expo-theme-switcher';
     const Homepage = () => {
     const { currentTheme } = useTheme() // currentTheme is a object
 
-    // currentTheme give like this object
     // console.log("currentTheme : ", currentTheme) // currentTheme :  {"isDarkMode": false, "primaryBackgroundColor": "white", "primaryTextColor": "#000", "secondaryBackgroundColor": "#ccc", "secondaryTextColor": "#4d4d4d"}
 
     return (
@@ -89,3 +88,12 @@ export default Homepage
 
 
 ```
+
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Ankur1326/expo-theme-switcher-npm-package/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!

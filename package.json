@@ -19,6 +19,16 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.21.0"
   },
+
+  "homepage": "https://github.com/Ankur1326/expo-theme-switcher-npm-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ankur1326/expo-theme-switcher-npm-package"
+  },
+  "bugs": {
+    "url": "https://github.com/Ankur1326/expo-theme-switcher-npm-package/issues"
+  },
+
   "keywords": [
     "react-native",
     "react native-web",
