@@ -1,7 +1,8 @@
 import { View, Pressable, Animated, Easing, TouchableOpacity, Text, Modal, StyleSheet, } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '../Context/ThemeContext';
-import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { Appearance, useColorScheme } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -10,6 +11,7 @@ const ThemeSwitcher = () => {
     const [isModalVisible, setModalVisible] = useState(false)
     const [selectedOption, setSelectedOption] = useState(null);
     const [storedOption, setStoredOption] = useState(null);
+
 
     useEffect(() => {
         // Retrieve selected option from AsyncStorage on component mount
@@ -52,7 +54,9 @@ const ThemeSwitcher = () => {
     };
 
     const systemTheme = async () => {
-        setStoredOption(await AsyncStorage.getItem('selectedOption'))
+        const themeMode = await AsyncStorage.getItem('selectedOption')
+        setStoredOption(themeMode)
+        setSelectedOption(themeMode)
 
         if (storedOption === "System default") {
 
@@ -74,17 +78,15 @@ const ThemeSwitcher = () => {
 
 
     return (
-        <View style={{ justifyContent: 'center', backgroundColor: currentTheme.primaryBackgroundColor }}>
+        <View style={{ flex: 1, justifyContent: 'center', }}>
             <Pressable onPress={() => setModalVisible(true)} style={{ flexDirection: 'row', alignItems: 'center', gap: 20, paddingHorizontal: 15, paddingVertical: 10, backgroundColor: currentTheme.primaryBackgroundColor }}>
-                <FontAwesome name="sun-o" size={25} color={currentTheme.primaryTextColor} />
-
                 {
                     selectedOption === "Dark" ? <MaterialIcons name="dark-mode" size={24} color={currentTheme.primaryTextColor} /> : <FontAwesome name="sun-o" size={24} color={currentTheme.primaryTextColor} />
                 }
 
                 <View style={{}} >
                     <Text style={{ color: currentTheme.primaryTextColor, fontSize: 17 }}>Theme</Text>
-                    <Text style={{ color: currentTheme.secondaryTextColor }}>{selectedOption} Mode</Text>
+                    <Text style={{ color: currentTheme.secondaryTextColor, }}>{selectedOption} Mode</Text>
                 </View>
             </Pressable>
 

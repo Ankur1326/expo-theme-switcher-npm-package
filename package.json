@@ -1,6 +1,6 @@
 {
   "name": "expo-theme-switcher",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "This is npm package for helping react native(expo) developer, And it provide simple way to handle dark and light in big expo project",
   "main": "ThemeSwitcherProvider.ts",
   "scripts": {
