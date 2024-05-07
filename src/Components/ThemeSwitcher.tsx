@@ -78,7 +78,7 @@ const ThemeSwitcher = () => {
 
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', }}>
+        <View style={{  }}>
             <Pressable onPress={() => setModalVisible(true)} style={{ flexDirection: 'row', alignItems: 'center', gap: 20, paddingHorizontal: 15, paddingVertical: 10, backgroundColor: currentTheme.primaryBackgroundColor }}>
                 {
                     selectedOption === "Dark" ? <MaterialIcons name="dark-mode" size={24} color={currentTheme.primaryTextColor} /> : <FontAwesome name="sun-o" size={24} color={currentTheme.primaryTextColor} />
