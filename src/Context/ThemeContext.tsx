@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { useColorScheme } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Appearance, useColorScheme } from 'react-native';
 
 // styles 
 interface Theme {
@@ -8,8 +8,6 @@ interface Theme {
   secondaryBackgroundColor: string,
   primaryTextColor: string,
   secondaryTextColor: String,
-  primaryBorderColor: string,
-  secondaryBorderColor: string,
   isDarkMode: Boolean
 }
 
@@ -18,8 +16,6 @@ let lightTheme: Theme = {
   secondaryBackgroundColor: "#cccccc",
   primaryTextColor: "#000",
   secondaryTextColor: "#4d4d4d",
-  primaryBorderColor: "black",
-  secondaryBorderColor: "gray",
   isDarkMode: false
 }
 
@@ -28,14 +24,12 @@ let darkTheme: Theme = {
   secondaryBackgroundColor: "#333",
   primaryTextColor: "#FFF",
   secondaryTextColor: "#cccccc",
-  primaryBorderColor: "white",
-  secondaryBorderColor: "gray",
   isDarkMode: true
 }
 
 interface ThemeContextType {
   currentTheme: Theme,
-  toggleTheme: () => void,
+  toggleTheme: (String) => void,
 }
 
 export const ThemeContext = createContext<ThemeContextType | undefined>({
@@ -52,8 +46,6 @@ export const ThemeProvider = ({ children, light, dark }) => {
         secondaryBackgroundColor: light.secondaryBackgroundColor || "#cccccc",
         primaryTextColor: light.primaryTextColor || "#000",
         secondaryTextColor: light.secondaryTextColor || "#4d4d4d",
-        primaryBorderColor: light.primaryBorderColor || "black",
-        secondaryBorderColor: light.secondaryBorderColor || "gray",
       }
     }
     if (dark) {
@@ -63,21 +55,23 @@ export const ThemeProvider = ({ children, light, dark }) => {
         secondaryBackgroundColor: dark.secondaryBackgroundColor || "#333",
         primaryTextColor: dark.primaryTextColor || "#FFF",
         secondaryTextColor: dark.secondaryTextColor || "#cccccc",
-        primaryBorderColor: dark.primaryBorderColor || "white",
-        secondaryBorderColor: dark.secondaryBorderColor || "gray",
       }
     }
 
   }, [light, dark])
+
   const [currentTheme, setCurrentTheme] = useState(lightTheme)
 
   const systemColorScheme = useColorScheme();
 
-  const toggleTheme = () => {
-    setCurrentTheme(prevTheme =>
-      prevTheme === lightTheme ? darkTheme : lightTheme,
-    );
-  };
+  const toggleTheme = (selectedValue: String) => {
+    if (selectedValue === "Light") {
+      setCurrentTheme(lightTheme)
+    }
+    else if (selectedValue === "Dark") {
+      setCurrentTheme(darkTheme)
+    }
+  }
 
   useEffect(() => {
     // load the preference theme from storage on component mount
@@ -100,6 +94,7 @@ export const ThemeProvider = ({ children, light, dark }) => {
       console.error('Error loading theme preference:', error);
     }
   };
+
 
   useEffect(() => {
     saveInitialTheme(currentTheme);
