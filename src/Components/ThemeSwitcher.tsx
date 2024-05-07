@@ -1,11 +1,8 @@
 import { View, Pressable, Animated, Easing, TouchableOpacity, Text, Modal, StyleSheet, } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '../Context/ThemeContext';
-<<<<<<< HEAD
-import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
-=======
 import { FontAwesome } from '@expo/vector-icons';
->>>>>>> fa55676930fd88818f31ea8b1e1d9812d812598f
 import { Appearance, useColorScheme } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -13,10 +10,8 @@ const ThemeSwitcher = () => {
     const { currentTheme, toggleTheme } = useTheme();
     const [isModalVisible, setModalVisible] = useState(false)
     const [selectedOption, setSelectedOption] = useState(null);
-<<<<<<< HEAD
     const [storedOption, setStoredOption] = useState(null);
-=======
->>>>>>> fa55676930fd88818f31ea8b1e1d9812d812598f
+
 
     useEffect(() => {
         // Retrieve selected option from AsyncStorage on component mount
@@ -30,11 +25,7 @@ const ThemeSwitcher = () => {
 
     const retrieveSelectedOption = async () => {
         try {
-<<<<<<< HEAD
             setStoredOption(await AsyncStorage.getItem('selectedOption'))
-=======
-            const storedOption = await AsyncStorage.getItem('selectedOption');
->>>>>>> fa55676930fd88818f31ea8b1e1d9812d812598f
             if (storedOption !== null) {
                 setSelectedOption(storedOption);
             }
@@ -63,13 +54,9 @@ const ThemeSwitcher = () => {
     };
 
     const systemTheme = async () => {
-<<<<<<< HEAD
         const themeMode = await AsyncStorage.getItem('selectedOption')
         setStoredOption(themeMode)
         setSelectedOption(themeMode)
-=======
-        const storedOption = await AsyncStorage.getItem('selectedOption');
->>>>>>> fa55676930fd88818f31ea8b1e1d9812d812598f
 
         if (storedOption === "System default") {
 
@@ -91,30 +78,18 @@ const ThemeSwitcher = () => {
 
 
     return (
-<<<<<<< HEAD
-        <View style={{ justifyContent: 'center', backgroundColor: currentTheme.primaryBackgroundColor }}>
+        <View style={{ flex: 1, justifyContent: 'center', }}>
             <Pressable onPress={() => setModalVisible(true)} style={{ flexDirection: 'row', alignItems: 'center', gap: 20, paddingHorizontal: 15, paddingVertical: 10, backgroundColor: currentTheme.primaryBackgroundColor }}>
                 {
                     selectedOption === "Dark" ? <MaterialIcons name="dark-mode" size={24} color={currentTheme.primaryTextColor} /> : <FontAwesome name="sun-o" size={24} color={currentTheme.primaryTextColor} />
                 }
-
+                
                 <View style={{}} >
                     <Text style={{ color: currentTheme.primaryTextColor, fontSize: 17 }}>Theme</Text>
-                    <Text style={{ color: currentTheme.secondaryTextColor }}>{selectedOption} Mode</Text>
+                    <Text style={{ color: currentTheme.secondaryTextColor, }}>{selectedOption} Mode</Text>
                 </View>
             </Pressable>
 
-=======
-        <View style={{ flex: 1, justifyContent: 'center', }}>
-            <Pressable onPress={() => setModalVisible(true)} style={{ flexDirection: 'row', alignItems: 'center', gap: 20, paddingHorizontal: 15, paddingVertical: 10, backgroundColor: currentTheme.primaryBackgroundColor }}>
-                <FontAwesome name="sun-o" size={25} color={currentTheme.primaryTextColor} />
-                <View style={{}} >
-                    <Text style={{ color: currentTheme.primaryTextColor, fontSize: 17 }}>Theme</Text>
-                    <Text style={{ color: currentTheme.secondaryTextColor }}>Dark Mode</Text>
-                </View>
-            </Pressable>
-
->>>>>>> fa55676930fd88818f31ea8b1e1d9812d812598f
             <Modal
                 animationType='fade'
                 transparent={true}
