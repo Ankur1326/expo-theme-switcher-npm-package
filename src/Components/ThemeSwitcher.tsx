@@ -52,7 +52,9 @@ const ThemeSwitcher = () => {
     };
 
     const systemTheme = async () => {
-        setStoredOption(await AsyncStorage.getItem('selectedOption'))
+        const themeMode = await AsyncStorage.getItem('selectedOption')
+        setStoredOption(themeMode)
+        setSelectedOption(themeMode)
 
         if (storedOption === "System default") {
 
@@ -76,8 +78,6 @@ const ThemeSwitcher = () => {
     return (
         <View style={{ justifyContent: 'center', backgroundColor: currentTheme.primaryBackgroundColor }}>
             <Pressable onPress={() => setModalVisible(true)} style={{ flexDirection: 'row', alignItems: 'center', gap: 20, paddingHorizontal: 15, paddingVertical: 10, backgroundColor: currentTheme.primaryBackgroundColor }}>
-                <FontAwesome name="sun-o" size={25} color={currentTheme.primaryTextColor} />
-
                 {
                     selectedOption === "Dark" ? <MaterialIcons name="dark-mode" size={24} color={currentTheme.primaryTextColor} /> : <FontAwesome name="sun-o" size={24} color={currentTheme.primaryTextColor} />
                 }
